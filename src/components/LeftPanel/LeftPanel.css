@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+
 .leftPanelContainer {
     width: 20%;
     height: 110vh;
-    background-color: pink;
+    background-color: #dddddd87;
+    font-family: 'Poppins', sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -23,10 +28,11 @@
     width: 100%;
     height: auto;
     font-size: 1.7rem;
-    font-weight: 900;
+    font-weight: 600;
     margin-top: 30px;
     margin-bottom: 30px;
     padding-left: 20px;
+    color: #008adf;
 
     display: flex;
     justify-content: flex-start;
@@ -43,16 +49,21 @@
     width: 100%;
     height: auto;
     font-size: 1.1rem;
-    font-weight: 200;
+    font-weight: 300;
     padding-left: 23px;
     margin-bottom: 25px;
+    color: #9c9797;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.leftPanelOptions span{
+.leftPanelUpper .leftPanelOptions:nth-of-type(2) {
+    color: #008adf;
+}
+
+.leftPanelOptions span {
     width: auto;
     height: auto;
     font-size: 28px;
@@ -60,7 +71,7 @@
     margin-right: 10px;
 }
 
-.leftPanelLower{
+.leftPanelLower {
     width: 100%;
     height: auto;
 
@@ -70,13 +81,18 @@
     align-items: flex-start;
 }
 
-.leftPanelLower div:nth-of-type(1){
+.leftPanelLower div:nth-of-type(1) {
     width: 100%;
     height: auto;
     margin-bottom: 25px;
     padding-left: 18px;
-    
+    color: #9c9797;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.leftPanelLower div:nth-of-type(3) {
+    color: #E21818;
 }
