@@ -1,0 +1,82 @@
+.leftPanelContainer {
+    width: 20%;
+    height: 110vh;
+    background-color: pink;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftPanelUpper {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.leftPanelTitle {
+    width: 100%;
+    height: auto;
+    font-size: 1.7rem;
+    font-weight: 900;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#leftPanelLogo {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.leftPanelOptions {
+    width: 100%;
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: 200;
+    padding-left: 23px;
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leftPanelOptions span{
+    width: auto;
+    height: auto;
+    font-size: 28px;
+    font-weight: 200;
+    margin-right: 10px;
+}
+
+.leftPanelLower{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.leftPanelLower div:nth-of-type(1){
+    width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+    padding-left: 18px;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
