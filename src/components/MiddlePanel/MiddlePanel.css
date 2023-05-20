@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+
+.middlePanelContainer {
+    width: 50%;
+    height: 110vh;
+    /* background-color: pink; */
+    font-family: 'Poppins', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.middleHeader {
+    width: 100%;
+    height: auto;
+    /* background-color: rgb(224, 167, 167); */
+    padding: 25px;
+    border-bottom: 2px solid #dddddd87;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.middleHeader .day {
+    width: auto;
+    height: auto;
+    /* background-color: green; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.middleHeader .day span:nth-of-type(1) {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.middleHeader .day span:nth-of-type(2) {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #9c9797;
+}
+
+.middleHeader .searchPanel {
+    width: auto;
+    height: auto;
+    /* background-color: pink; */
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middleHeader .searchPanel #searchIcon {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 18px;
+    color: #9c9797;
+}
+
+.middleHeader .searchPanel input {
+    width: 240px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 0.15rem;
+    padding: 10px;
+    padding-left: 35px;
+    font-size: 0.8rem;
+    letter-spacing: 0.02rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e8e3e360;
+}
+
+.middleHeader .searchPanel input:focus {
+    outline: none;
+}
+
+.middleHeader .searchPanel button {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 0.15rem;
+}
+
+.middleHeader .searchPanel button span {
+    color: #9c9797;
+    font-size: 1.3rem;
+    font-weight: 300;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.middleInfo {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.middleInfo .heading {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.middleInfo .weatherAbout {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.middleInfo .weatherAbout .weatherInfo {
+    width: 48%;
+    height: 90px;
+    background-color: pink;
+    border-radius: 0.2rem;
+    padding: 10px;
+    background-color: #e6dfdf58;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.middleInfo .weatherAbout .weatherInfo .data {
+    width: auto;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.weatherInfo .data span:nth-of-type(1) {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: #8f8989;
+}
+
+.weatherInfo .data span:nth-of-type(2) {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.weatherInfo .weatherIcon{
+    font-size: 2.5rem;
+    margin-left: 5px;
+    margin-right: 15px;
+    font-weight: 300;
+}
