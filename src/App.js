@@ -1,6 +1,7 @@
 import './App.css';
 import LeftPanel from './components/LeftPanel/LeftPanel.jsx';
 import MiddlePanel from './components/MiddlePanel/MiddlePanel';
+import RightPanel from './components/RightPanel/RightPanel';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="WeatherApp">
       <LeftPanel />
       <MiddlePanel />
+      <RightPanel />
     </div>
   );
 }

@@ -4,7 +4,7 @@
 
 .middlePanelContainer {
     width: 50%;
-    height: 110vh;
+    height: 150vh;
     /* background-color: pink; */
     font-family: 'Poppins', sans-serif;
 
@@ -177,4 +177,23 @@
     margin-left: 5px;
     margin-right: 15px;
     font-weight: 300;
+    color: #008adf;
+}
+
+.lowerGraph{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.lowerGraph .heading{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    font-weight: 500;
 }

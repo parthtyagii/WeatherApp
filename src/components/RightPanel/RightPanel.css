@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+
+
+.rightPanelContainer {
+    width: 30%;
+    height: 150vh;
+    background-color: #19A7CE;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 30px;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rightPanelHeader {
+    width: 100%;
+    height: auto;
+    /* background-color: aquamarine; */
+    border-bottom: 1px solid white;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rightPanelHeader .up {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rightPanelHeader .up div {
+    width: auto;
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.rightPanelHeader .up div span:nth-of-type(1) {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.rightPanelHeader .up div span:nth-of-type(2) {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.rightPanelHeader .low {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.rightPanelHeader .low div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.rightPanelHeader .low div span:nth-of-type(1) {
+    font-size: 3.5rem;
+    font-weight: 300;
+}
+
+.rightPanelHeader .low div span:nth-of-type(2) {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.rightPanelHeader .low div:nth-of-type(2) {
+    max-width: 40%;
+    height: auto;
+    /* background-color: cadetblue; */
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: right;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.rightPanelRainInfo {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rightPanelLower {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rightPanelLower .heading,
+.rightPanelRainInfo .heading {
+    width: 100%;
+    height: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.rightPanelLower .sunInfo {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 0.4rem;
+    border: 1px solid white;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.rightPanelLower .sunInfo .sunIcon {
+    margin-right: 15px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.rightPanelLower .sunInfo div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.rightPanelLower .sunInfo div:nth-of-type(2) {
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-left: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightPanelLower .sunInfo div span:nth-of-type(1) {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.rightPanelLower .sunInfo div span:nth-of-type(2) {
+    font-size: 1.2rem;
+    font-weight: 500;
+}

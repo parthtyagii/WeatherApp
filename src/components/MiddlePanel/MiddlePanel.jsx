@@ -72,6 +72,10 @@ function MiddlePanel() {
                 </div>
             </div>
 
+            <div className="lowerGraph">
+                <div className="heading">Average Weekly Temperature</div>
+            </div>
+
 
 
         </div>
