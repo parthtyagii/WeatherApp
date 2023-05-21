@@ -1,0 +1,10 @@
+.WeatherChart{
+    width: 100%;
+    height: auto;
+    background-color: rgba(240, 235, 235, 0.267);
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

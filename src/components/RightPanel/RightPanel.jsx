@@ -19,7 +19,7 @@ function RightPanel() {
                         <span class="material-symbols-rounded">
                             partly_cloudy_day
                         </span>
-                        <span>20 C</span>
+                        <span>27&deg; C</span>
                     </div>
                     <div>Dramatic cloudy</div>
                 </div>

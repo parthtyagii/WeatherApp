@@ -24,7 +24,7 @@
     /* background-color: aquamarine; */
     border-bottom: 1px solid white;
     box-sizing: border-box;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
 
     display: flex;
     flex-direction: column;
@@ -81,12 +81,12 @@
 }
 
 .rightPanelHeader .low div span:nth-of-type(1) {
-    font-size: 3.5rem;
+    font-size: 3.3rem;
     font-weight: 300;
 }
 
 .rightPanelHeader .low div span:nth-of-type(2) {
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-weight: 400;
 }
 
@@ -94,7 +94,7 @@
     max-width: 40%;
     height: auto;
     /* background-color: cadetblue; */
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: right;
 

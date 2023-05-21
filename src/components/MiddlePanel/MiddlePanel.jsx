@@ -1,6 +1,6 @@
 import React from 'react';
 import './MiddlePanel.css';
-
+import WeatherChart from '../WeatherChart.jsx/WeatherChart';
 
 
 
@@ -74,6 +74,9 @@ function MiddlePanel() {
 
             <div className="lowerGraph">
                 <div className="heading">Average Weekly Temperature</div>
+
+                <WeatherChart />
+
             </div>
 
 
