@@ -5,7 +5,7 @@
 
 .rightPanelContainer {
     width: 30%;
-    height: 150vh;
+    height: 135vh;
     background-color: #19A7CE;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -129,9 +129,9 @@
 .rightPanelRainInfo .heading {
     width: 100%;
     height: auto;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .rightPanelLower .sunInfo {

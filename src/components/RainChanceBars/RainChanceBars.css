@@ -1,0 +1,42 @@
+.rainChanceContainer {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 15px;
+}
+
+.aboutRain {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aboutRain span{
+    font-size: 0.9rem;
+}
+
+.aboutRain .rainChance {
+    width: 70%;
+    height: 30px;
+    background-color: pink;
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.aboutRain .rainChance .progressBar {
+    width: 30%;
+    height: 100%;
+    background-color: red;
+    border-radius: 1rem;
+
+}

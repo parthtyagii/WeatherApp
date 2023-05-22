@@ -1,5 +1,6 @@
 import React from 'react';
 import './RightPanel.css';
+import RainChanceBars from '../RainChanceBars/RainChanceBars';
 
 
 function RightPanel() {
@@ -27,6 +28,8 @@ function RightPanel() {
 
             <div className="rightPanelRainInfo">
                 <div className="heading">Chance of rain</div>
+
+                <RainChanceBars />
 
             </div>
 
