@@ -1,28 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './RightPanel.css';
 import RainChanceBars from '../RainChanceBars/RainChanceBars';
 
 
-function RightPanel() {
+function RightPanel({ weatherData, userLocation }) {
+
+    const [sunrise, setSunrise] = useState();
+    const [sunset, setSunset] = useState();
+
+    const getSunTime = () => {
+        if (weatherData) {
+
+            const sunriseTimestamp = weatherData.sys.sunrise;
+            const sunriseDate = new Date(sunriseTimestamp * 1000);
+            const sunriseTime = sunriseDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            const sunsetTimestamp = weatherData.sys.sunset;
+            const sunsetDate = new Date(sunsetTimestamp * 1000);
+            const sunsetTime = sunsetDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            // console.log(sunriseTime, sunsetTime);
+            setSunrise(sunriseTime);
+            setSunset(sunsetTime);
+        }
+    }
+
+
+    useEffect(() => {
+        getSunTime();
+    }, [weatherData])
+
     return (
         <div className='rightPanelContainer'>
             <div className="rightPanelHeader">
                 <div className="up">
                     <div>
                         <span>Parth Tyagi</span>
-                        <span>Delhi, India</span>
+                        {userLocation && (
+                            <span>{userLocation.city}, {userLocation.country}</span>
+                        )}
                     </div>
                     <div>07:24 AM</div>
                 </div>
 
                 <div className="low">
                     <div>
-                        <span class="material-symbols-rounded">
+                        <span className="material-symbols-rounded">
                             partly_cloudy_day
                         </span>
-                        <span>27&deg; C</span>
+                        {weatherData && (
+                            <span>{Math.floor(weatherData.main.temp)}&deg; C</span>
+                        )}
                     </div>
-                    <div>Dramatic cloudy</div>
+                    {weatherData && (
+                        <div>{weatherData.weather[0].description}</div>
+                    )}
                 </div>
             </div>
 
@@ -37,23 +69,23 @@ function RightPanel() {
                 <div className="heading">Sunrise & Sunset</div>
 
                 <div className="sunInfo">
-                    <span class="material-symbols-rounded sunIcon">
+                    <span className="material-symbols-rounded sunIcon">
                         wb_sunny
                     </span>
                     <div>
                         <span>Sunrise</span>
-                        <span>4:20 AM</span>
+                        <span>{sunrise}</span>
                     </div>
                     <div>4 hours ago</div>
                 </div>
 
                 <div className="sunInfo">
-                    <span class="material-symbols-rounded sunIcon">
+                    <span className="material-symbols-rounded sunIcon">
                         wb_twilight
                     </span>
                     <div>
                         <span>Sunset</span>
-                        <span>5:50 PM</span>
+                        <span>{sunset}</span>
                     </div>
                     <div>in 9 hours</div>
                 </div>
