@@ -9,6 +9,7 @@ function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
     const [sunset, setSunset] = useState();
     const [sunriseHours, setSunriseHours] = useState();
     const [sunsetHours, setSunsetHours] = useState();
+    const [currTime, setCurrTime] = useState();
 
     const getSunTime = () => {
         if (weatherCurrData) {
@@ -16,6 +17,15 @@ function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
             // console.log(weatherCurrData);
 
             const currDate = new Date(weatherCurrData.dt * 1000);
+
+            let hours = currDate.getHours();
+            let minutes = currDate.getMinutes();
+            var ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            let formattedTime = hours + ":" + minutes + " " + ampm;
+            // console.log(currTime);
+            setCurrTime(formattedTime);
 
             const sunriseTimestamp = weatherCurrData.sys.sunrise;
             const sunriseDate = new Date(sunriseTimestamp * 1000);
@@ -29,7 +39,7 @@ function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
             setSunrise(sunriseTime);
             setSunset(sunsetTime);
 
-            console.log(currDate.getHours(), sunriseDate.getHours(), sunsetDate.getHours(), (currDate.getHours() - sunriseDate.getHours()), (currDate.getHours() - sunsetDate.getHours()));
+            // console.log(currDate.getHours(), sunriseDate.getHours(), sunsetDate.getHours(), (currDate.getHours() - sunriseDate.getHours()), (currDate.getHours() - sunsetDate.getHours()));
             setSunriseHours((currDate.getHours() - sunriseDate.getHours()));
             setSunsetHours((currDate.getHours() - sunsetDate.getHours()));
         }
@@ -50,7 +60,9 @@ function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
                             <span>{userLocation.city}, {userLocation.country}</span>
                         )}
                     </div>
-                    <div>07:24 AM</div>
+                    {currTime && (
+                        <div>{currTime}</div>
+                    )}
                 </div>
 
                 <div className="low">
