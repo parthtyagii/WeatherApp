@@ -21,7 +21,7 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
     const getWeatherDetails = async (lookFor) => {
         try {
             const response1 = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${lookFor}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
-            // console.log(response1.data);
+            console.log(response1.data);
             setWeatherCurrData(response1.data);
 
             const response2 = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${lookFor}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
@@ -94,12 +94,14 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
                         </div>
                     </div>
                     <div className="weatherInfo">
-                        <span className="material-symbols-rounded weatherIcon">
-                            rainy
+                        <span className="material-symbols-outlined weatherIcon">
+                            humidity_mid
                         </span>
                         <div className="data">
-                            <span>Rain Chance</span>
-                            <span>24%</span>
+                            <span>Humidity</span>
+                            {weatherCurrData && (
+                                <span>{weatherCurrData.main.humidity}%</span>
+                            )}
                         </div>
                     </div><div className="weatherInfo">
                         <span className="material-symbols-rounded weatherIcon">
@@ -113,11 +115,13 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
                         </div>
                     </div><div className="weatherInfo">
                         <span className="material-symbols-rounded weatherIcon">
-                            clear_day
+                            visibility
                         </span>
                         <div className="data">
-                            <span>Uv Index</span>
-                            <span>2,3</span>
+                            <span>Visibilty</span>
+                            {weatherCurrData && (
+                                <span>{weatherCurrData.visibility} m</span>
+                            )}
                         </div>
                     </div>
                 </div>

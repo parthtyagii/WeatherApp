@@ -3,32 +3,42 @@ import './RightPanel.css';
 import RainChanceBars from '../RainChanceBars/RainChanceBars';
 
 
-function RightPanel({ weatherData, userLocation }) {
+function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
 
     const [sunrise, setSunrise] = useState();
     const [sunset, setSunset] = useState();
+    const [sunriseHours, setSunriseHours] = useState();
+    const [sunsetHours, setSunsetHours] = useState();
 
     const getSunTime = () => {
-        if (weatherData) {
+        if (weatherCurrData) {
 
-            const sunriseTimestamp = weatherData.sys.sunrise;
+            // console.log(weatherCurrData);
+
+            const currDate = new Date(weatherCurrData.dt * 1000);
+
+            const sunriseTimestamp = weatherCurrData.sys.sunrise;
             const sunriseDate = new Date(sunriseTimestamp * 1000);
             const sunriseTime = sunriseDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            const sunsetTimestamp = weatherData.sys.sunset;
+            const sunsetTimestamp = weatherCurrData.sys.sunset;
             const sunsetDate = new Date(sunsetTimestamp * 1000);
             const sunsetTime = sunsetDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
             // console.log(sunriseTime, sunsetTime);
             setSunrise(sunriseTime);
             setSunset(sunsetTime);
+
+            console.log(currDate.getHours(), sunriseDate.getHours(), sunsetDate.getHours(), (currDate.getHours() - sunriseDate.getHours()), (currDate.getHours() - sunsetDate.getHours()));
+            setSunriseHours((currDate.getHours() - sunriseDate.getHours()));
+            setSunsetHours((currDate.getHours() - sunsetDate.getHours()));
         }
     }
 
-
     useEffect(() => {
         getSunTime();
-    }, [weatherData])
+    }, [weatherCurrData])
+
 
     return (
         <div className='rightPanelContainer'>
@@ -48,12 +58,12 @@ function RightPanel({ weatherData, userLocation }) {
                         <span className="material-symbols-rounded">
                             partly_cloudy_day
                         </span>
-                        {weatherData && (
-                            <span>{Math.floor(weatherData.main.temp)}&deg; C</span>
+                        {weatherCurrData && (
+                            <span>{Math.floor(weatherCurrData.main.temp)}&deg; C</span>
                         )}
                     </div>
-                    {weatherData && (
-                        <div>{weatherData.weather[0].description}</div>
+                    {weatherCurrData && (
+                        <div>{weatherCurrData.weather[0].description}</div>
                     )}
                 </div>
             </div>
@@ -61,7 +71,7 @@ function RightPanel({ weatherData, userLocation }) {
             <div className="rightPanelRainInfo">
                 <div className="heading">Chance of rain</div>
 
-                <RainChanceBars />
+                <RainChanceBars weatherDailyData={weatherDailyData} />
 
             </div>
 
@@ -76,7 +86,11 @@ function RightPanel({ weatherData, userLocation }) {
                         <span>Sunrise</span>
                         <span>{sunrise}</span>
                     </div>
-                    <div>4 hours ago</div>
+                    {sunriseHours && (
+                        <div>
+                            {sunriseHours < 0 ? `in ${Math.abs(sunriseHours)} hours` : `${Math.abs(sunriseHours)} hours ago`}
+                        </div>
+                    )}
                 </div>
 
                 <div className="sunInfo">
@@ -87,7 +101,11 @@ function RightPanel({ weatherData, userLocation }) {
                         <span>Sunset</span>
                         <span>{sunset}</span>
                     </div>
-                    <div>in 9 hours</div>
+                    {sunsetHours && (
+                        <div>
+                            {sunsetHours < 0 ? `in ${Math.abs(sunsetHours)} hours` : `${Math.abs(sunsetHours)} hours ago`}
+                        </div>
+                    )}
                 </div>
             </div>
 

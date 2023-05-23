@@ -1,43 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './RainChanceBars.css';
 
 
 
-function RainChanceBars() {
+function RainChanceBars({ weatherDailyData }) {
+
+    const [rainChance, setRainChance] = useState(null);
+
+    const getRainData = () => {
+        if (weatherDailyData) {
+            let rain = [];
+            for (let i = 0; i < 4; i++) {
+
+                const per = weatherDailyData[i].pop * 100;
+                const date = new Date(weatherDailyData[i].dt * 1000);
+                // console.log(date)
+
+                let time = (date.getHours() % 12).toString();
+                if (date.getHours() >= 12) {
+                    time = time + ' PM';
+                }
+                else {
+                    time = time + ' AM';
+                }
+
+                rain.push({
+                    per: per,
+                    time: time,
+                });
+            }
+            // console.log(rain)
+            setRainChance(rain);
+        }
+    }
+
+    useEffect(() => {
+        getRainData();
+    }, [weatherDailyData]);
+
     return (
         <div className='rainChanceContainer'>
 
-            <div className="aboutRain">
-                <span>7 PM</span>
-                <div className="rainChance">
-                    <div className="progressBar"></div>
-                </div>
-                <span>44%</span>
-            </div>
+            {rainChance && (
+                rainChance.map((r, index) => {
 
-            <div className="aboutRain">
-                <span>7 PM</span>
-                <div className="rainChance">
-                    <div className="progressBar"></div>
-                </div>
-                <span>44%</span>
-            </div>
+                    let progress = r.per;
+                    if (r.per < 10) {
+                        progress = 10;
+                    }
 
-            <div className="aboutRain">
-                <span>7 PM</span>
-                <div className="rainChance">
-                    <div className="progressBar"></div>
-                </div>
-                <span>44%</span>
-            </div>
-
-            <div className="aboutRain">
-                <span>7 PM</span>
-                <div className="rainChance">
-                    <div className="progressBar"></div>
-                </div>
-                <span>44%</span>
-            </div>
+                    return (
+                        <div className="aboutRain" key={index}>
+                            <span>{r.time}</span>
+                            <div className="rainChance">
+                                <div className="progressBar" style={{ width: `${progress}%` }}></div>
+                            </div>
+                            <span>{Math.floor(r.per)}%</span>
+                        </div>
+                    );
+                })
+            )}
 
         </div>
     );

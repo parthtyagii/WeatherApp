@@ -12,10 +12,10 @@ function WeatherChart({ weatherDailyData }) {
     const chartDetails = () => {
         let arr = [];
         for (let i = 0; i < 40; i += 8) {
-            arr.push(weatherDailyData[i].main.temp);
+            arr.push(Math.floor(weatherDailyData[i].main.temp));
         }
 
-        console.log(arr);
+        // console.log(arr);
 
         const D = {
             labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
@@ -35,8 +35,6 @@ function WeatherChart({ weatherDailyData }) {
         };
 
         setData(D);
-
-        // console.log(weatherDailyData)
     };
 
     useEffect(() => {
@@ -50,6 +48,11 @@ function WeatherChart({ weatherDailyData }) {
             {Data && (
                 <Line data={Data}
                     options={{
+                        elements: {
+                            line: {
+                                tension: 0.3,
+                            },
+                        },
                         scales: {
                             x: {
                                 grid: {
@@ -60,19 +63,23 @@ function WeatherChart({ weatherDailyData }) {
                                         family: 'Poppins, sans-serif',
                                         size: '15px',
                                     },
-
-                                }
+                                },
+                                offset: false,
                             },
                             y: {
                                 ticks: {
                                     font: {
                                         family: 'Poppins, sans-serif',
                                         size: '15px',
-                                    }
+                                    },
+                                    callback: function (value, index, values) {
+                                        return `${value}\u00B0  `;
+                                    },
                                 },
                                 border: {
                                     display: false,
-                                }
+                                },
+                                // beginAtZero: true,
                             }
                         },
                         plugins: {
