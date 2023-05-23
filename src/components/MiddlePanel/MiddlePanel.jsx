@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './MiddlePanel.css';
 import WeatherChart from '../WeatherChart.jsx/WeatherChart';
 import axios from 'axios';
+import { useToast } from '@chakra-ui/react';
 
 
 
@@ -9,6 +10,8 @@ const Months = ["January", "February", "March", "April", "May", "June", "July", 
 const WeekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, setWeatherDailyData }) {
+
+    const toast = useToast();
 
     const d = new Date();
     const date = d.getDate();
@@ -21,7 +24,7 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
     const getWeatherDetails = async (lookFor) => {
         try {
             const response1 = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${lookFor}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
-            console.log(response1.data);
+            // console.log(response1.data);
             setWeatherCurrData(response1.data);
 
             const response2 = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${lookFor}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
@@ -30,21 +33,42 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
 
         }
         catch (err) {
-            console.log(err);
+            // console.log(err);
+            toast({
+                title: 'Error!',
+                description: "Incorrect city name or postal code.",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
         }
     };
 
     const searchWeather = async (e) => {
-        if (e.key !== 'Enter') {
-            return;
-        }
+        try {
 
-        if (!searchedCity || (searchedCity.trim().length === 0)) {
-            console.log('galat key')
-            // return getWeatherDetails()
+            if (e.key !== 'Enter') {
+                return;
+            }
+
+            if (!searchedCity || (searchedCity.trim().length === 0)) {
+                // console.log('galat key')
+                // return getWeatherDetails()
+                throw new Error();
+            }
+            else {
+                return getWeatherDetails(searchedCity);
+            }
         }
-        else {
-            return getWeatherDetails(searchedCity);
+        catch (err) {
+            // console.log(err);
+            toast({
+                title: 'Error!',
+                description: "Please enter City name or postal code.",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
         }
     };
 

@@ -6,7 +6,8 @@
 .rightPanelContainer {
     width: 30%;
     height: 135vh;
-    background-color: #19A7CE;
+    /* background-color: #19A7CE; */
+    background-color: #086692;
     color: white;
     font-family: 'Poppins', sans-serif;
     padding: 30px;

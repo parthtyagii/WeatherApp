@@ -17,14 +17,8 @@ function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
             // console.log(weatherCurrData);
 
             const currDate = new Date(weatherCurrData.dt * 1000);
-
-            let hours = currDate.getHours();
-            let minutes = currDate.getMinutes();
-            var ampm = hours >= 12 ? "PM" : "AM";
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            let formattedTime = hours + ":" + minutes + " " + ampm;
-            // console.log(currTime);
+            let formattedTime = currDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            // console.log(formattedTime);
             setCurrTime(formattedTime);
 
             const sunriseTimestamp = weatherCurrData.sys.sunrise;

@@ -18,14 +18,14 @@
     align-items: center;
 }
 
-.aboutRain span{
+.aboutRain span {
     font-size: 0.9rem;
 }
 
 .aboutRain .rainChance {
     width: 70%;
     height: 30px;
-    background-color: pink;
+    background-color: #1888bd8f;
     border-radius: 1rem;
 
     display: flex;
@@ -36,7 +36,7 @@
 .aboutRain .rainChance .progressBar {
     width: 30%;
     height: 100%;
-    background-color: red;
+    background-color: #9ccbf5;
     border-radius: 1rem;
 
 }
