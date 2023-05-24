@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-
-
 .leftPanelContainer {
     width: 20%;
     height: 135vh;
@@ -27,11 +25,11 @@
 .leftPanelTitle {
     width: 100%;
     height: auto;
-    font-size: 1.7rem;
+    font-size: 2.8rem;
     font-weight: 600;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-left: 20px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
     color: #008adf;
 
     display: flex;
@@ -40,18 +38,18 @@
 }
 
 #leftPanelLogo {
-    height: 40px;
-    width: 40px;
-    margin-right: 10px;
+    height: 4rem;
+    width: 4rem;
+    margin-right: 1rem;
 }
 
 .leftPanelOptions {
     width: 100%;
     height: auto;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     font-weight: 300;
-    padding-left: 23px;
-    margin-bottom: 25px;
+    padding-left: 2.3rem;
+    margin-bottom: 2.5rem;
     color: #9c9797;
 
     display: flex;
@@ -66,9 +64,9 @@
 .leftPanelOptions span {
     width: auto;
     height: auto;
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: 200;
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 .leftPanelLower {
@@ -84,8 +82,8 @@
 .leftPanelLower div:nth-of-type(1) {
     width: 100%;
     height: auto;
-    margin-bottom: 25px;
-    padding-left: 18px;
+    margin-bottom: 2.5rem;
+    padding-left: 1.8rem;
     color: #9c9797;
 
     display: flex;
@@ -95,4 +93,27 @@
 
 .leftPanelLower div:nth-of-type(3) {
     color: #E21818;
+}
+
+@media (max-width:480px) {
+    .leftPanelContainer {
+        width: 100%;
+        height: auto;
+        background-color: white;
+    }
+
+    .leftPanelUpper .leftPanelTitle{
+        padding-left: 0;
+        margin-bottom: 0;
+        justify-content: center;
+    }
+
+    .leftPanelUpper .leftPanelOptions {
+        display: none;
+    }
+
+    .leftPanelLower {
+        display: none;
+    }
+
 }

@@ -10,8 +10,8 @@
     background-color: #086692;
     color: white;
     font-family: 'Poppins', sans-serif;
-    padding: 30px;
-    padding-top: 20px;
+    padding: 3rem;
+    padding-top: 2rem;
 
     display: flex;
     flex-direction: column;
@@ -23,9 +23,9 @@
     width: 100%;
     height: auto;
     /* background-color: aquamarine; */
-    border-bottom: 1px solid white;
+    border-bottom: 0.1rem solid white;
     box-sizing: border-box;
-    padding-bottom: 30px;
+    padding-bottom: 3rem;
 
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@
 .rightPanelHeader .up {
     width: 100%;
     height: auto;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@
 .rightPanelHeader .up div {
     width: auto;
     height: auto;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     font-weight: 500;
 
     display: flex;
@@ -56,12 +56,12 @@
 }
 
 .rightPanelHeader .up div span:nth-of-type(1) {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 500;
 }
 
 .rightPanelHeader .up div span:nth-of-type(2) {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     font-weight: 400;
 }
 
@@ -82,12 +82,12 @@
 }
 
 .rightPanelHeader .low div span:nth-of-type(1) {
-    font-size: 3.3rem;
+    font-size: 5rem;
     font-weight: 300;
 }
 
 .rightPanelHeader .low div span:nth-of-type(2) {
-    font-size: 2.4rem;
+    font-size: 3.4rem;
     font-weight: 400;
 }
 
@@ -95,7 +95,7 @@
     max-width: 40%;
     height: auto;
     /* background-color: cadetblue; */
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 400;
     text-align: right;
 
@@ -107,8 +107,8 @@
 .rightPanelRainInfo {
     width: 100%;
     height: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@
 .rightPanelRainInfo .heading {
     width: 100%;
     height: auto;
-    font-size: 1.1rem;
+    font-size: 1.9rem;
     font-weight: 500;
     margin-bottom: 20px;
 }
@@ -138,10 +138,10 @@
 .rightPanelLower .sunInfo {
     width: 100%;
     height: auto;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 0.4rem;
-    border: 1px solid white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid white;
 
     display: flex;
     justify-content: flex-start;
@@ -149,8 +149,8 @@
 }
 
 .rightPanelLower .sunInfo .sunIcon {
-    margin-right: 15px;
-    font-size: 2rem;
+    margin-right: 1.5rem;
+    font-size: 3.5rem;
     font-weight: 300;
 }
 
@@ -162,7 +162,7 @@
 }
 
 .rightPanelLower .sunInfo div:nth-of-type(2) {
-    font-size: 0.7rem;
+    font-size: 1.1rem;
     font-weight: 400;
     margin-left: auto;
 
@@ -172,11 +172,54 @@
 }
 
 .rightPanelLower .sunInfo div span:nth-of-type(1) {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
 .rightPanelLower .sunInfo div span:nth-of-type(2) {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-weight: 500;
+}
+
+@media (max-width:480px) {
+    .rightPanelContainer {
+        width: 100%;
+        height: 105vh;
+    }
+
+    .rightPanelHeader .up {
+        display: none;
+    }
+
+    .rightPanelLower {
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .rightPanelLower .heading {
+        width: 100%;
+    }
+
+    .rightPanelLower .sunInfo {
+        width: 49%;
+    }
+
+    .rightPanelLower .sunInfo .sunIcon {
+        margin-right: 1.5rem;
+        font-size: 2.6rem;
+    }
+
+    .rightPanelLower .sunInfo div span:nth-of-type(1) {
+        font-size: 1rem;
+    }
+
+    .rightPanelLower .sunInfo div span:nth-of-type(2) {
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+    .rightPanelHeader{
+       padding-bottom: 1.5rem;
+    }
 }

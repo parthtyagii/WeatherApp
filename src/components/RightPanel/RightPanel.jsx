@@ -50,8 +50,8 @@ function RightPanel({ weatherCurrData, weatherDailyData, userLocation }) {
                 <div className="up">
                     <div>
                         <span>Parth Tyagi</span>
-                        {userLocation && (
-                            <span>{userLocation.city}, {userLocation.country}</span>
+                        {weatherCurrData && (
+                            <span>{weatherCurrData.name}</span>
                         )}
                     </div>
                     {currTime && (

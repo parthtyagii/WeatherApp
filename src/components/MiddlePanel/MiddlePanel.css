@@ -18,8 +18,8 @@
     width: 100%;
     height: auto;
     /* background-color: rgb(224, 167, 167); */
-    padding: 25px;
-    border-bottom: 2px solid #dddddd87;
+    padding: 2.5rem;
+    border-bottom: .2rem solid #dddddd87;
 
     display: flex;
     justify-content: space-between;
@@ -34,16 +34,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .middleHeader .day span:nth-of-type(1) {
-    font-size: 1.4rem;
+    font-size: 2.3rem;
     font-weight: 600;
 }
 
 .middleHeader .day span:nth-of-type(2) {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: #9c9797;
 }
@@ -61,23 +61,23 @@
 }
 
 .middleHeader .searchPanel #searchIcon {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     position: absolute;
-    left: 18px;
+    left: 1.8rem;
     color: #9c9797;
 }
 
 .middleHeader .searchPanel input {
-    width: 240px;
-    height: 40px;
-    margin-right: 10px;
-    margin-left: 10px;
+    width: 24rem;
+    height: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     border: none;
-    border-radius: 0.15rem;
-    padding: 10px;
-    padding-left: 35px;
-    font-size: 0.8rem;
-    letter-spacing: 0.02rem;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    padding-left: 3.5rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
     background-color: #e8e3e360;
@@ -88,17 +88,18 @@
 }
 
 .middleHeader .searchPanel button {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    margin-left: 10px;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     border: none;
-    border-radius: 0.15rem;
+    border-radius: 0.3rem;
+    background-color: #e8e3e360;
 }
 
 .middleHeader .searchPanel button span {
     color: #9c9797;
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: 300;
 
     display: flex;
@@ -110,7 +111,7 @@
 .middleInfo {
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 2rem;
 
     display: flex;
     flex-direction: column;
@@ -121,7 +122,8 @@
 .middleInfo .heading {
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
     font-weight: 500;
 }
 
@@ -133,15 +135,15 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    row-gap: 20px;
+    row-gap: 2rem;
 }
 
 .middleInfo .weatherAbout .weatherInfo {
     width: 48%;
-    height: 90px;
+    height: 9rem;
     background-color: pink;
-    border-radius: 0.2rem;
-    padding: 10px;
+    border-radius: 0.5rem;
+    padding: 1rem;
     background-color: #e6dfdf58;
 
     display: flex;
@@ -160,31 +162,31 @@
 }
 
 .weatherInfo .data span:nth-of-type(1) {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    margin-bottom: 6px;
+    margin-bottom: 0.6rem;
     color: #8f8989;
 }
 
 .weatherInfo .data span:nth-of-type(2) {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
     font-weight: 500;
 }
 
-.weatherInfo .weatherIcon{
-    font-size: 2.5rem;
-    margin-left: 5px;
-    margin-right: 15px;
+.weatherInfo .weatherIcon {
+    font-size: 4rem;
+    margin-left: 0.5rem;
+    margin-right: 1.5rem;
     font-weight: 300;
     color: #008adf;
 }
 
-.lowerGraph{
+.lowerGraph {
     width: 100%;
     height: auto;
-    padding: 20px;
-    padding-top: 5px;
-    padding-bottom: 10px;
+    padding: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -192,9 +194,38 @@
     align-items: flex-start;
 }
 
-.lowerGraph .heading{
+.lowerGraph .heading {
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     font-weight: 500;
+    font-size: 1.6rem;
+}
+
+@media (max-width:480px) {
+    .middlePanelContainer {
+        width: 100%;
+        height: 128vh;
+    }
+
+    .middleInfo .weatherAbout .weatherInfo {
+        height: 7rem;
+    }
+
+    .weatherInfo .data span:nth-of-type(1) {
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .weatherInfo .data span:nth-of-type(2) {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .weatherInfo .weatherIcon {
+        font-size: 3rem;
+        margin-left: 0.5rem;
+        margin-right: 1.5rem;
+    }
+
 }

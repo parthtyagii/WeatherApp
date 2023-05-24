@@ -2,7 +2,8 @@
     width: 100%;
     height: auto;
     background-color: rgba(240, 235, 235, 0.267);
-    padding: 20px;
+    padding: 2rem;
+    border-radius: 0.5rem;
 
     display: flex;
     justify-content: center;

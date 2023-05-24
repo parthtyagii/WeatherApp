@@ -5,10 +5,12 @@ import MiddlePanel from './components/MiddlePanel/MiddlePanel';
 import RightPanel from './components/RightPanel/RightPanel';
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
+import HashLoader from 'react-spinners/HashLoader';
 
 
 function App() {
 
+  const [loader, setLoader] = useState();
   const toast = useToast();
 
   const [weatherCurrData, setWeatherCurrData] = useState(null);
@@ -17,6 +19,7 @@ function App() {
 
 
   const getUserLocation = async () => {
+    setLoader(true);
     try {
       //finding user location...
       const response1 = await axios.get('http://ip-api.com/json/');
@@ -31,17 +34,26 @@ function App() {
       const response3 = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${response1.data.city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
       // console.log(response3.data);
       setWeatherDailyData(response3.data.list);
+      setTimeout(() => {
+        setLoader(false);
+      }, 1000);
     }
     catch (err) {
       // console.log(err);
-      toast({
-        title: 'Error!',
-        description: "Couldn't get weather data. Refresh or search again.",
-        status: 'error',
-        duration: 3000,
-        isClosable: true,
-      });
+      setTimeout(() => {
+        setLoader(false);
+        setTimeout(() => {
+          toast({
+            title: 'Error!',
+            description: "Couldn't get weather data. Refresh or search again.",
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+          });
+        }, 500);
+      }, 1000);
     }
+
   }
 
   useEffect(() => {
@@ -50,10 +62,20 @@ function App() {
 
   return (
     <div className="WeatherApp">
-      <LeftPanel />
-      <MiddlePanel weatherCurrData={weatherCurrData} setWeatherCurrData={setWeatherCurrData} weatherDailyData={weatherDailyData} setWeatherDailyData={setWeatherDailyData} />
-      <RightPanel weatherCurrData={weatherCurrData} weatherDailyData={weatherDailyData} userLocation={userLocation} />
-    </div>
+
+      {loader ? (
+        <div className='loader'>
+          <HashLoader size='80px' color="#008adf" />
+        </div>
+      ) : (
+        <>
+          <LeftPanel />
+          <MiddlePanel weatherCurrData={weatherCurrData} setWeatherCurrData={setWeatherCurrData} weatherDailyData={weatherDailyData} setWeatherDailyData={setWeatherDailyData} />
+          <RightPanel weatherCurrData={weatherCurrData} weatherDailyData={weatherDailyData} userLocation={userLocation} />
+        </>
+      )}
+
+    </div >
   );
 }
 

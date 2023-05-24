@@ -1,0 +1,59 @@
+.suggestionContainer {
+    width: 24rem;
+    min-height: 4rem;
+    padding-left: 2rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+
+    position: absolute;
+    top: 4.3rem;
+    left: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.suggestionContainer .city {
+    width: 100%;
+    height: 3.5rem;
+    background-color: #e8e3e3b6;
+    margin-bottom: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.suggestionContainer .city div {
+    width: 100%;
+    height: 100%;
+
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.suggestionContainer .city div-scrollable {
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: calc(100% - 2rem);
+    padding-right: 1rem;
+}
+
+.suggestionContainer .city div::-webkit-scrollbar {
+    display: none;
+}

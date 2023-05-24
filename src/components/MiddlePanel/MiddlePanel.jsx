@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './MiddlePanel.css';
 import WeatherChart from '../WeatherChart.jsx/WeatherChart';
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
+import SuggestionBar from '../SuggestionBar/SuggestionBar';
 
 
 
@@ -20,6 +21,71 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
     const year = d.getFullYear();
 
     const [searchedCity, setSearchedCity] = useState(null);
+    const [suggestions, setSuggestions] = useState(null);
+    const [searchLoader, setSearchLoader] = useState(false);
+    const inputRef = useRef();
+
+    const changeHandler = async (e) => {
+        setSearchedCity(e.target.value);
+
+        if (e.target.value.trim().length === 0) {
+            setSearchLoader(false);
+            setSuggestions(null);
+            return;
+        }
+
+        try {
+            const options = {
+                method: 'GET',
+                url: `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${e.target.value}&minPopulation=1000000`,
+                headers: {
+                    'X-RapidAPI-Key': '4f12eff405msh17328e33aeb8a9ap1bad65jsn1e99a9868f95',
+                    'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+                }
+            };
+
+            const response = await axios.request(options);
+            // console.log(response.data.data);
+            setSuggestions(response.data.data);
+            setSearchLoader(true);
+            setTimeout(() => {
+                setSuggestions(null);
+                setSearchLoader(false);
+            }, 10000);
+        }
+        catch (err) {
+            // console.log(err);
+        }
+    }
+
+    const searchWeather = async (e) => {
+        try {
+
+            if (e.key !== 'Enter') {
+                return;
+            }
+
+            if (!searchedCity || (searchedCity.trim().length === 0)) {
+                // console.log('galat key')
+                throw new Error();
+            }
+            else {
+                setSuggestions(null);
+                setSearchLoader(false);
+                return getWeatherDetails(searchedCity);
+            }
+        }
+        catch (err) {
+            // console.log(err);
+            toast({
+                title: 'Error!',
+                description: "Please enter City name or postal code.",
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            });
+        }
+    };
 
     const getWeatherDetails = async (lookFor) => {
         try {
@@ -38,40 +104,11 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
                 title: 'Error!',
                 description: "Incorrect city name or postal code.",
                 status: 'error',
-                duration: 3000,
+                duration: 4000,
                 isClosable: true,
             });
         }
     };
-
-    const searchWeather = async (e) => {
-        try {
-
-            if (e.key !== 'Enter') {
-                return;
-            }
-
-            if (!searchedCity || (searchedCity.trim().length === 0)) {
-                // console.log('galat key')
-                // return getWeatherDetails()
-                throw new Error();
-            }
-            else {
-                return getWeatherDetails(searchedCity);
-            }
-        }
-        catch (err) {
-            // console.log(err);
-            toast({
-                title: 'Error!',
-                description: "Please enter City name or postal code.",
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-            });
-        }
-    };
-
     // console.log(weatherData)
 
     return (
@@ -87,7 +124,11 @@ function MiddlePanel({ weatherCurrData, setWeatherCurrData, weatherDailyData, se
                         search
                     </span>
 
-                    <input type="text" onChange={(e) => setSearchedCity(e.target.value)} onKeyDown={(e) => searchWeather(e)} placeholder='Search Location here' />
+                    <input type="text" ref={inputRef} onChange={(e) => changeHandler(e)} onKeyDown={(e) => searchWeather(e)} placeholder='Search Location here' />
+
+                    {searchLoader && (
+                        <SuggestionBar inputRef={inputRef} suggestions={suggestions} setSearchedCity={setSearchedCity} />
+                    )}
 
                     <button>
                         <span className="material-symbols-rounded">
