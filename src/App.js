@@ -6,11 +6,13 @@ import RightPanel from './components/RightPanel/RightPanel';
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
 import HashLoader from 'react-spinners/HashLoader';
+import WeatherLoader from './components/WeatherLoader/WeatherLoader';
 
 
 function App() {
 
   const [loader, setLoader] = useState();
+  const [weatherLoader, setWeatherLoader] = useState(false);
   const toast = useToast();
 
   const [weatherCurrData, setWeatherCurrData] = useState(null);
@@ -61,21 +63,30 @@ function App() {
   }, []);
 
   return (
-    <div className="WeatherApp">
+    <>
+      <div className="WeatherApp">
 
-      {loader ? (
-        <div className='loader'>
-          <HashLoader size='80px' color="#008adf" />
-        </div>
-      ) : (
-        <>
-          <LeftPanel />
-          <MiddlePanel weatherCurrData={weatherCurrData} setWeatherCurrData={setWeatherCurrData} weatherDailyData={weatherDailyData} setWeatherDailyData={setWeatherDailyData} />
-          <RightPanel weatherCurrData={weatherCurrData} weatherDailyData={weatherDailyData} userLocation={userLocation} />
-        </>
+        {loader && (
+          <div className='loader'>
+            <HashLoader size='80px' color="#008adf" />
+          </div>
+        )}
+
+        {!loader && (
+          <>
+            <LeftPanel />
+            <MiddlePanel setWeatherLoader={setWeatherLoader} weatherCurrData={weatherCurrData} setWeatherCurrData={setWeatherCurrData} weatherDailyData={weatherDailyData} setWeatherDailyData={setWeatherDailyData} />
+            <RightPanel weatherCurrData={weatherCurrData} weatherDailyData={weatherDailyData} userLocation={userLocation} />
+          </>
+        )}
+
+      </div >
+
+      {weatherLoader && (
+        <WeatherLoader />
       )}
 
-    </div >
+    </>
   );
 }
 
