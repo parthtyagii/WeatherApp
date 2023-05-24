@@ -24,9 +24,19 @@ function App() {
     setLoader(true);
     try {
       //finding user location...
-      const response1 = await axios.get('http://ip-api.com/json/');
-      // console.log(response1.data);
-      setUserLocation(response1.data);
+      const options = {
+        method: 'GET',
+        url: 'https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation',
+        params: {
+          apikey: `${process.env.REACT_APP_LOCATION_KEY}`
+        },
+        headers: {
+          'X-RapidAPI-Key': '4f12eff405msh17328e33aeb8a9ap1bad65jsn1e99a9868f95',
+          'X-RapidAPI-Host': 'find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com'
+        }
+      };
+      const response1 = await axios.request(options);
+      console.log(response1.data);
 
       //weather info..
       const response2 = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${response1.data.city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
