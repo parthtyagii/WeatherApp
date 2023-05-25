@@ -2,9 +2,7 @@
 
 Meteorica is a weather web application that utilizes React.js for frontend development, Chart.js for data visualization, and the OpenWeather API for weather updates and forecasts. With React.js, Meteorica provides a user-friendly interface, while Chart.js enables beautiful and interactive data display. By integrating with the OpenWeather API, Meteorica delivers accurate and up-to-date weather information for cities worldwide.
 
-## Demo
-
-[![Demo Video](https://github.com/parthtyagii/WeatherApp/blob/master/weatherApp.mp4)](https://github.com/parthtyagii/WeatherApp/blob/master/weatherApp.mp4)
+https://github.com/parthtyagii/WeatherApp/assets/80752912/e644dd96-f7ae-4b50-9867-635ff190a7ec
 
 ## Built With
 
