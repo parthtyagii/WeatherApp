@@ -34,7 +34,7 @@ To get a local copy up and running follow these simple example steps:
      npm install
 ```
 
-* Get you free Api keys from OpenWeatherMap and ipgeolocation.io
+* Get you free Api keys from **OpenWeatherMap** and **ipgeolocation.io**
 
 
 * Add a .env file in your root directory
