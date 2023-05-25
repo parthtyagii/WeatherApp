@@ -36,10 +36,10 @@ function App() {
         }
       };
       const response1 = await axios.request(options);
-      console.log(response1.data);
+      // console.log(response1.data);
 
       //weather info..
-      const response2 = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${response1.data.city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
+      const response2 = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${response1.data.city || 'delhi'}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
       // console.log(response2.data);
       setWeatherCurrData(response2.data);
 
