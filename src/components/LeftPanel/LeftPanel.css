@@ -95,25 +95,29 @@
     color: #E21818;
 }
 
-@media (max-width:480px) {
+@media (min-width:320px) and (max-width: 768px) {
     .leftPanelContainer {
         width: 100%;
         height: auto;
         background-color: white;
-    }
-
-    .leftPanelUpper .leftPanelTitle{
-        padding-left: 0;
-        margin-bottom: 0;
         justify-content: center;
     }
 
-    .leftPanelUpper .leftPanelOptions {
-        display: none;
+    .leftPanelUpper .leftPanelTitle {
+        padding-left: 0;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        justify-content: center;
     }
 
+    .leftPanelUpper .leftPanelOptions,
     .leftPanelLower {
         display: none;
     }
+}
 
+@media (min-width:768px) and (max-width:1024px) {
+    .leftPanelContainer {
+        height: 112vh;
+    }
 }

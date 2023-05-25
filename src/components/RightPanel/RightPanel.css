@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-
-
-
 .rightPanelContainer {
     width: 30%;
     height: 135vh;
-    /* background-color: #19A7CE; */
     background-color: #086692;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -22,7 +18,6 @@
 .rightPanelHeader {
     width: 100%;
     height: auto;
-    /* background-color: aquamarine; */
     border-bottom: 0.1rem solid white;
     box-sizing: border-box;
     padding-bottom: 3rem;
@@ -87,14 +82,13 @@
 }
 
 .rightPanelHeader .low div span:nth-of-type(2) {
-    font-size: 3.4rem;
+    font-size: 4.4rem;
     font-weight: 400;
 }
 
 .rightPanelHeader .low div:nth-of-type(2) {
     max-width: 40%;
     height: auto;
-    /* background-color: cadetblue; */
     font-size: 2rem;
     font-weight: 400;
     text-align: right;
@@ -181,10 +175,10 @@
     font-weight: 500;
 }
 
-@media (max-width:480px) {
+@media (min-width:320px)and (max-width: 485px) {
     .rightPanelContainer {
         width: 100%;
-        height: 105vh;
+        height: 90vh;
     }
 
     .rightPanelHeader .up {
@@ -219,7 +213,56 @@
         font-weight: 500;
     }
 
-    .rightPanelHeader{
-       padding-bottom: 1.5rem;
+    .rightPanelHeader {
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (min-width:485px)and (max-width: 768px) {
+    .rightPanelContainer {
+        width: 100%;
+        height: 110vh;
+    }
+
+    .rightPanelHeader .up {
+        display: none;
+    }
+
+    .rightPanelLower {
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .rightPanelLower .heading {
+        width: 100%;
+    }
+
+    .rightPanelLower .sunInfo {
+        width: 49%;
+    }
+
+    .rightPanelLower .sunInfo .sunIcon {
+        margin-right: 1.5rem;
+        font-size: 2.6rem;
+    }
+
+    .rightPanelLower .sunInfo div span:nth-of-type(1) {
+        font-size: 1rem;
+    }
+
+    .rightPanelLower .sunInfo div span:nth-of-type(2) {
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+    .rightPanelHeader {
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .rightPanelContainer {
+        height: 112vh;
     }
 }

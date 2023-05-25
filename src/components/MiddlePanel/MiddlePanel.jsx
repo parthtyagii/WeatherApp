@@ -117,7 +117,6 @@ function MiddlePanel({ setWeatherLoader, weatherCurrData, setWeatherCurrData, we
             }, 800);
         }
     };
-    // console.log(weatherData)
 
     return (
         <>

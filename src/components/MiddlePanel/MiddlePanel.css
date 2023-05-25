@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-
-
 .middlePanelContainer {
     width: 50%;
     height: 135vh;
-    /* background-color: pink; */
     font-family: 'Poppins', sans-serif;
 
     display: flex;
@@ -17,7 +14,6 @@
 .middleHeader {
     width: 100%;
     height: auto;
-    /* background-color: rgb(224, 167, 167); */
     padding: 2.5rem;
     border-bottom: .2rem solid #dddddd87;
 
@@ -29,7 +25,6 @@
 .middleHeader .day {
     width: auto;
     height: auto;
-    /* background-color: green; */
 
     display: flex;
     flex-direction: column;
@@ -51,7 +46,6 @@
 .middleHeader .searchPanel {
     width: auto;
     height: auto;
-    /* background-color: pink; */
 
     position: relative;
 
@@ -202,10 +196,10 @@
     font-size: 1.6rem;
 }
 
-@media (max-width:480px) {
+@media (min-width:320px)and (max-width: 485px) {
     .middlePanelContainer {
         width: 100%;
-        height: 128vh;
+        height: 108vh;
     }
 
     .middleInfo .weatherAbout .weatherInfo {
@@ -226,6 +220,39 @@
         font-size: 3rem;
         margin-left: 0.5rem;
         margin-right: 1.5rem;
+    }
+}
+
+@media (min-width:485px)and (max-width: 768px) {
+    .middlePanelContainer {
+        width: 100%;
+        height: 158vh;
+    }
+
+    .middleInfo .weatherAbout .weatherInfo {
+        height: 7rem;
+    }
+
+    .weatherInfo .data span:nth-of-type(1) {
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .weatherInfo .data span:nth-of-type(2) {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .weatherInfo .weatherIcon {
+        font-size: 3rem;
+        margin-left: 0.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .middlePanelContainer {
+        height: 112vh;
     }
 
 }
