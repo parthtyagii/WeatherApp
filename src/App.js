@@ -24,7 +24,6 @@ function App() {
     setLoader(true);
     try {
       //finding user location...
-      
       const response1 = await axios.get( `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_LOCATION_KEY}`);
       console.log(response1.data);
 
